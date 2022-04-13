@@ -1,0 +1,218 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$carLef: 0.5;
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .game {
+    height: 700px;
+    width: 450px;
+    overflow: hidden;
+    position: relative;
+
+    .game-background {
+      width: 100%;
+      height: 100%;
+
+      img {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    %car {
+      position: absolute;
+      top: 1%;
+      width: 5rem;
+      height: 5rem;
+    }
+
+    %car-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .cars {
+      .one {
+        @extend %car;
+        left: 0%;
+        animation: carMove 2s linear forwards infinite;
+
+        img {
+          @extend %car-img;
+
+          transform: rotate(180deg);
+        }
+      }
+
+      .two {
+        @extend %car;
+        left: 25%;
+        animation: carMove 3s linear forwards infinite;
+
+        img {
+          @extend %car-img;
+        }
+      }
+
+      .three {
+        @extend %car;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: carMove 3.2s linear forwards infinite;
+
+        img {
+          @extend %car-img;
+          transform: rotate(-90deg);
+        }
+      }
+
+      .four {
+        @extend %car;
+        left: 58%;
+        animation: carMove 1.8s linear forwards infinite;
+
+        img {
+          @extend %car-img;
+          transform: rotate(90deg);
+        }
+      }
+
+      .five {
+        @extend %car;
+        left: 80%;
+        animation: carMove 2.5s 0.6s linear forwards infinite;
+
+        img {
+          @extend %car-img;
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .player-car {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6rem;
+      height: 6rem;
+
+      img {
+        @extend %car-img;
+        transform: rotate(180deg);
+      }
+    }
+
+    .game-over {
+      opacity: 0;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background: hsla(0, 0%, 16%, 0.728);
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease-in-out;
+
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+
+      button {
+        all: unset;
+        font-weight: bold;
+        background: black;
+        border: white;
+        padding: 0.6rem 0.8rem;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .arrows {
+    padding: 0 1rem;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 6rem;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+
+    button {
+      all: unset;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: 60%;
+        width: 60%;
+      }
+    }
+
+    .right {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@keyframes carMove {
+  0% {
+    top: 1%;
+    will-change: top;
+  }
+  100% {
+    top: 101%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .game {
+      margin-top: calc(700px - 100vh);
+    }
+
+    .arrows {
+      bottom: 0%;
+      display: flex;
+    }
+  }
+}

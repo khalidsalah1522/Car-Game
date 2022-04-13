@@ -1,0 +1,260 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.container .game {
+  height: 700px;
+  width: 450px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container .game .game-background {
+  width: 100%;
+  height: 100%;
+}
+
+.container .game .game-background img {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.container .game .cars .one, .container .game .cars .two, .container .game .cars .three, .container .game .cars .four, .container .game .cars .five {
+  position: absolute;
+  top: 1%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.container .game .cars .one img, .container .game .cars .two img, .container .game .cars .three img, .container .game .cars .four img, .container .game .cars .five img, .container .game .player-car img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.container .game .cars .one {
+  left: 0%;
+  -webkit-animation: carMove 2s linear forwards infinite;
+          animation: carMove 2s linear forwards infinite;
+}
+
+.container .game .cars .one img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container .game .cars .two {
+  left: 25%;
+  -webkit-animation: carMove 3s linear forwards infinite;
+          animation: carMove 3s linear forwards infinite;
+}
+
+.container .game .cars .three {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-animation: carMove 3.2s linear forwards infinite;
+          animation: carMove 3.2s linear forwards infinite;
+}
+
+.container .game .cars .three img {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.container .game .cars .four {
+  left: 58%;
+  -webkit-animation: carMove 1.8s linear forwards infinite;
+          animation: carMove 1.8s linear forwards infinite;
+}
+
+.container .game .cars .four img {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.container .game .cars .five {
+  left: 80%;
+  -webkit-animation: carMove 2.5s 0.6s linear forwards infinite;
+          animation: carMove 2.5s 0.6s linear forwards infinite;
+}
+
+.container .game .cars .five img {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.container .game .player-car {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 6rem;
+  height: 6rem;
+}
+
+.container .game .player-car img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container .game .game-over {
+  opacity: 0;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.728);
+  color: white;
+  font-family: sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.container .game .game-over h1 {
+  margin-bottom: 2rem;
+}
+
+.container .game .game-over h2 {
+  margin-bottom: 2rem;
+}
+
+.container .game .game-over button {
+  all: unset;
+  font-weight: bold;
+  background: black;
+  border: white;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container .arrows {
+  padding: 0 1rem;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  height: 6rem;
+  width: 100%;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 100;
+}
+
+.container .arrows button {
+  all: unset;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .arrows button img {
+  height: 60%;
+  width: 60%;
+}
+
+.container .arrows .right {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+@-webkit-keyframes carMove {
+  0% {
+    top: 1%;
+    will-change: top;
+  }
+  100% {
+    top: 101%;
+  }
+}
+
+@keyframes carMove {
+  0% {
+    top: 1%;
+    will-change: top;
+  }
+  100% {
+    top: 101%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .container .game {
+    margin-top: calc(700px - 100vh);
+  }
+  .container .arrows {
+    bottom: 0%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=style.css.map */
